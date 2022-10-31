@@ -2,38 +2,39 @@
 
 /**
  * cap_string - capitalized words
- * @str: string
+ * @s: string
  * Return: pointer to a string
  */
 
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int i = 0;
+	int x, y;
 
-	while (str[i])
+	int trigger;
+
+	char nots[] = ",;.!?(){}\nt\" ";
+
+	for (x = 0; trigger = 0; s[x] != '\0'; x++)
 	{
-		while (!(str[i] >= 'a' && str[i] <= 'z'))
+		if (s[0] > 96 && s[0] < 123)
+			trigger = 1;
+		for (y = 0; nots[y] != '\0'; y++)
 		{
-			i++;
-			if (str[i - 1] == ' ' ||
-			str[i - 1] == 't' ||
-			str[i - 1] == '\n' ||
-			str[i - 1] == ',' ||
-			str[i - 1] == ';' ||
-			str[i - 1] == '.' ||
-			str[i - 1] == '!' ||
-			str[i - 1] == '?' ||
-			str[i - 1] == '"' ||
-			str[i - 1] == '(' ||
-			str[i - 1] == ')' ||
-			str[i - 1] == '{' ||
-			str[i - 1] == '}' ||
-			i == 0)
+			if (nots[y] == s[x])
+				trigger = 1;
+		}
+		if (trigger)
+		{
+			if (s[x] > 96 && s[x] < 123)
 			{
-				str[i] -= 32;
-				i++;
+				s[x] -= 32;
+				trigger = 0;
 			}
+			else if (s[x] > 64 && s[x] < 91)
+				trigger = 0;
+			else if (s[x] > 47 && s[x] < 58)
+				trigger = 0;
 		}
 	}
-	return (str);
+	return (s);
 }
