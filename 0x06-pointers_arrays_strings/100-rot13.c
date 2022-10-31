@@ -2,11 +2,11 @@
 
 /**
  * rot13 - encodes a string using rot13
- * @str: the string to be encoded
+ * @s: the string to be encoded
  * Return: A pointer to the encoded string
  */
 
-char *rot13(char *str)
+char *rot13(char *s)
 {
 	int x, y;
 
