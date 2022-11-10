@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 		printf("%s\n", "Error");
 		return (1);
 	}
+
 	num = atoi(argv[1]);
 	if (num < 0)
 	{
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
 			num -= coins[j];
 			result++;
 		}
-		printf("%d\n", result);
-		return (0);
 	}
+	printf("%d\n", result);
+	return (0);
 }
